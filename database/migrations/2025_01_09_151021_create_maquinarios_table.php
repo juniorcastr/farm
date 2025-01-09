@@ -1,27 +1,27 @@
 <?php
 
+// 2025_01_09_000005_create_maquinarios_table.php
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateMaquinariosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('maquinarios', function (Blueprint $table) {
             $table->id();
+            $table->string('nome');
+            $table->string('tipo'); // e.g., trator, colheitadeira
+            $table->date('data_aquisicao')->nullable();
+            $table->string('estado')->default('ativo'); // ativo, manutenção, etc.
+            $table->text('observacoes')->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('maquinarios');
     }
-};
+}

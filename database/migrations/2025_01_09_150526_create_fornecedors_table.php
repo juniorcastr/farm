@@ -11,8 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('fornecedors', function (Blueprint $table) {
+        Schema::create('fornecedores', function (Blueprint $table) {
             $table->id();
+            $table->string('nome');
+            $table->string('cnpj', 14)->unique();
+            $table->string('segmento')->nullable();
+            $table->string('telefone')->nullable();
+            $table->string('email')->nullable();
+            $table->text('endereco')->nullable();
+            $table->text('observacao')->nullable();
             $table->timestamps();
         });
     }

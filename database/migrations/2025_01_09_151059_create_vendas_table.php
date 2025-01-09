@@ -1,27 +1,26 @@
 <?php
 
+// 2025_01_09_000007_create_vendas_table.php
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateVendasTable extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('vendas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('cliente_id')->constrained()->onDelete('cascade');
+            $table->decimal('valor_total', 10, 2);
+            $table->date('data_venda');
+            $table->string('metodo_pagamento')->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('vendas');
     }
-};
+}
