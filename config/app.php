@@ -186,4 +186,12 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    'widgets' => [
+        // ...
+        'default' => [
+            'account' => false, // Disables the account widget.
+            'info' => false, // Disables the info widget.
+        ],
+    ],
+
 ];
