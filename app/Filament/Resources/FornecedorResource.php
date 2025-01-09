@@ -28,6 +28,8 @@ class FornecedorResource extends Resource
                     ->maxLength(191),
                 Forms\Components\TextInput::make('cnpj')
                     ->required()
+                    ->mask('99.999.999/9999-99')
+                    ->placeholder('99.999.999/9999-99')
                     ->maxLength(14),
                 Forms\Components\TextInput::make('segmento')
                     ->maxLength(191),

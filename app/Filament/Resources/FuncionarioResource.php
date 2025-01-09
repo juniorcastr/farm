@@ -42,7 +42,8 @@ class FuncionarioResource extends Resource
                     ->numeric()
                     ->default(0.00),
                 Forms\Components\DatePicker::make('data_admissao')
-                    ->required(),
+                    ->required()
+                    ->default(now())
             ]);
     }
 

@@ -32,7 +32,8 @@ class FinanceiroResource extends Resource
                     ->required()
                     ->numeric(),
                 Forms\Components\DatePicker::make('data')
-                    ->required(),
+                    ->required()
+                    ->default(now()),
                 Forms\Components\Textarea::make('observacoes')
                     ->columnSpanFull(),
             ]);

@@ -41,9 +41,11 @@ class ProdutoResource extends Resource
                     ->default(0),
                 Forms\Components\TextInput::make('categoria')
                     ->maxLength(191),
-                Forms\Components\TextInput::make('fornecedor_id')
+                Forms\Components\Select::make('fornecedor_id')
+                    ->relationship('fornecedor', 'nome') // Define a relação
                     ->required()
-                    ->numeric(),
+                    ->label('Fornecedor') // Texto visível no formulário
+//                    ->searchable(), // Permite busca no dropdown
             ]);
     }
 
