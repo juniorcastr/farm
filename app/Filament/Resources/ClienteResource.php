@@ -39,7 +39,8 @@ class ClienteResource extends Resource
                     ->maxLength(191),
                 Forms\Components\Textarea::make('endereco')
                     ->columnSpanFull(),
-                Forms\Components\DateTimePicker::make('data_cadastro'),
+                Forms\Components\DateTimePicker::make('data_cadastro')
+                    ->default(now()),
             ]);
     }
 

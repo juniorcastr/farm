@@ -23,14 +23,15 @@ class VendaResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('cliente_id')
+                Forms\Components\Select::make('cliente_id')
                     ->required()
-                    ->numeric(),
+                    ->relationship('cliente', 'nome'),
                 Forms\Components\TextInput::make('valor_total')
                     ->required()
                     ->numeric(),
                 Forms\Components\DatePicker::make('data_venda')
-                    ->required(),
+                    ->required()
+                    ->default(now()),
                 Forms\Components\TextInput::make('metodo_pagamento')
                     ->maxLength(191),
             ]);
